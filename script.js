@@ -82,10 +82,10 @@ function drawMatrix(allTiles) {
     return [tileCanvas, Promise.all(allPromises)];   
 }
 
-function TilesServer(tiles) {
+function TilesServer(allTiles) {
     const webServerUrl = "https://dd-pdf-server.herokuapp.com/encode/";
     const body = JSON.stringify ({
-        'tile': tiles
+        'tile': allTiles
     });
     return fetch(webServerUrl, {
         method: 'Post',
