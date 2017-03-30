@@ -82,17 +82,17 @@ function drawMatrix(allTiles) {
     return [tileCanvas, Promise.all(allPromises)];   
 }
 
-function TilesServer(allTiles) {
-    const webServerUrl = "https://dd-pdf-server.herokuapp.com/encode/";
-    const body = JSON.stringify ({
-        'tile': allTiles
+function tilesToServer(allTiles) {
+    
+    var body = {
+        tiles: allTiles,
+    };
+
+    JSON.stringify(body);
+    return fetch ("https://dd-pdf-server.herokuapp.com/", {
+        method: "POST",
+        body: JSON.stringify(body)
     });
-    return fetch(webServerUrl, {
-        method: 'Post',
-        body: body
-    })
-        .then((res) => res.json())
-        .then((rjson) => rjson.msg);
 }
 
 // Put the content of the canvas into the PDF
