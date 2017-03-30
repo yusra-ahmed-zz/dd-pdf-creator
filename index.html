@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>PDF Creator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+  </head>
+  <body>
+
+    <div class="container button-container" onclick="onClickHandler()">
+      <div class="row">
+        <div class="col-1">
+          <img class="icon" src="pdf_logo.png">
+          <!-- <div class="button-text">View PDF</div> -->
+        </div>
+        <div class="col-3 action-text">
+          Generate a PDF of this map
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <canvas id="test-canvas" />
+  </body>
+</html>
