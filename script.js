@@ -89,7 +89,7 @@ function tilesToServer(allTiles) {
     };
 
     JSON.stringify(body);
-    return fetch ("https://dd-pdf-server.herokuapp.com/", {
+    return fetch ("https://dd-pdf-server.herokuapp.com/encode/", {
         method: "POST",
         body: JSON.stringify(body)
     });
