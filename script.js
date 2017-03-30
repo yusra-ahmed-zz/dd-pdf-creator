@@ -79,8 +79,20 @@ function drawMatrix(allTiles) {
         }));
       }
     }
-    return [tileCanvas, Promise.all(allPromises)];
-    
+    return [tileCanvas, Promise.all(allPromises)];   
+}
+
+function TilesServer(tiles) {
+    const webServerUrl = "https://dd-pdf-server.herokuapp.com/encode/";
+    const body = JSON.stringify ({
+        'tile': tiles
+    });
+    return fetch(webServerUrl, {
+        method: 'Post',
+        body: body
+    })
+        .then((res) => res.json())
+        .then((rjson) => rjson.msg);
 }
 
 // Put the content of the canvas into the PDF
