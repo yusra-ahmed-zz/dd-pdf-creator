@@ -1,5 +1,3 @@
-
-
 function getTilesFromGeometry(geometry, template, zoom){
   function long2tile(lon,zoom) {
     return (Math.floor((lon+180)/360*Math.pow(2,zoom)));
@@ -82,18 +80,18 @@ function drawMatrix(allTiles) {
     return [tileCanvas, Promise.all(allPromises)];   
 }
 
-function tilesToServer(allTiles) {
+// need to send tile data to server to bypass CORS issue
+// function tilesToServer(tiles) {
     
-    var body = {
-        tiles: allTiles,
-    };
-
-    JSON.stringify(body);
-    return fetch ("https://dd-pdf-server.herokuapp.com/encode/", {
-        method: "POST",
-        body: JSON.stringify(body)
-    });
-}
+//     var body = {
+//         tiles: allTiles,
+//     };
+//     JSON.stringify(body);
+//     return fetch ("https://dd-pdf-server.herokuapp.com/encode/", {
+//         method: "POST",
+//         body: JSON.stringify(body)
+//     });
+// }
 
 // Put the content of the canvas into the PDF
 function generatePDF (tileCanvas, allTilesResolved) {
