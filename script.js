@@ -80,18 +80,8 @@ function drawMatrix(allTiles) {
     return [tileCanvas, Promise.all(allPromises)];   
 }
 
-// need to send tile data to server to bypass CORS issue
-// function tilesToServer(tiles) {
-    
-//     var body = {
-//         tiles: allTiles,
-//     };
-//     JSON.stringify(body);
-//     return fetch ("https://dd-pdf-server.herokuapp.com/encode/", {
-//         method: "POST",
-//         body: JSON.stringify(body)
-//     });
-// }
+// need a function here to send tile data to server to bypass CORS issue
+
 
 // Put the content of the canvas into the PDF
 function generatePDF (tileCanvas, allTilesResolved) {
